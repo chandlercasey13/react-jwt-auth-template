@@ -11,6 +11,7 @@ const signup = async (formData) => {
     if (json.err) {
       throw new Error(json.err);
     }
+    localStorage.setItem('token', json.token);
 
     return json;
   } catch (err) {
@@ -44,10 +45,24 @@ const signin = async (user) => {
     }
   };
 
+  const getUser = () =>  {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+    const user = JSON.parse(atob(token.split('.')[1]));
+    return user;
+  }
+
+
+  const signout = () => {
+    localStorage.removeItem('token');
+  };
+
 
 const authService = {
     signup,
-    signin
+    signin,
+    getUser,
+    signout
 }
 
  export default authService 
