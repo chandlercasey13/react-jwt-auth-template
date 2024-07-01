@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'; // import useContext to grab the context
+import { AuthedUserContext } from '../../App'; // import the AuthedUserContext
 
-const NavBar = ({ user, handleSignout }) => {
+const NavBar = ({  handleSignout }) => {
+    const user = useContext(AuthedUserContext);
+
   return (
     <>
       { user ? (

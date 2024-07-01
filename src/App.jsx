@@ -13,6 +13,9 @@ import authService from './services/authService';
 export const AuthedUserContext = createContext(null);
 
 
+
+//ask about the create context bugs
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const handleSignout = () => {

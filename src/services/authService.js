@@ -11,7 +11,7 @@ const signup = async (formData) => {
     if (json.err) {
       throw new Error(json.err);
     }
-    localStorage.setItem('token', json.token);
+    
 
     return json;
   } catch (err) {
