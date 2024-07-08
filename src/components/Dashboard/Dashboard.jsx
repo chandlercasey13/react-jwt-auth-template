@@ -3,6 +3,7 @@ import { AuthedUserContext } from '../../App';
 
 
 const Dashboard = () => {
+  console.log(AuthedUserContext)
     const user = useContext(AuthedUserContext);
     return (
       <main>
